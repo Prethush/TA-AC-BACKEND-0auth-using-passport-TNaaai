@@ -47,17 +47,6 @@ app.use(session({
 
 
 app.use(auth.userInfo);
-app.use((req, res, next) => {
-  if((req.user && req.user.github) && (req.user && req.user.google)) {
-    res.locals.user = {};
-    res.locals.user.name = req.user.github.username || req.user.google.username;
-    console.log(res.locals.user.name);
-    next();
-
-  } else {
-    next();
-  }
-});
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
