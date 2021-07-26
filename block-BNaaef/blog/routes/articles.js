@@ -26,9 +26,9 @@ router.get("/:slug", (req, res, next) => {
     let slug = req.params.slug;
     let error = req.flash('error')[0];
     let info = req.flash('info')[0];
-    Article.findOne({slug}).populate('comments').populate('author', 'firstName email').exec((err, article) => {
+    Article.findOne({slug}).populate('comments').populate('author', 'name email').exec((err, article) => {
         if(err) return next(err);
-        Comment.find({articleId: slug}).populate('author', 'firstName email').exec((err, comments) => {
+        Comment.find({articleId: slug}).populate('author', 'name email').exec((err, comments) => {
             if(err) return next(err);
             console.log(comments);
             res.render('articleDetails', {article, error, comments, info});
