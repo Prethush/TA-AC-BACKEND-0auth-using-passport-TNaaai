@@ -54,7 +54,7 @@
             <% comments.forEach(comment => { %>
                 <div class="my-4">
                     <h3 class="text-indigo-600 text-2xl font-bold"><%= comment.title %></h3>
-                    <h4 class="text-gray-700 font-bold"><%= comment.author.firstName %></h4>
+                    <h4 class="text-gray-700 font-bold"><%= comment.author.name %></h4>
                     <h5 class="font-bold text-gray-700 text-lg"><%= comment.likes %></h5>
                     <a href="/comments/<%= comment.id %>/likes" class="mt-2 inline-block bg-green-500 p-0.5 text-white rounded-sm text-xs hover:bg-green-400">Like</a>
                    
